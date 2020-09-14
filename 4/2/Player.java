@@ -1,10 +1,6 @@
-import java.util.Random;
-
 public class Player {
     private String name;
     private int score;
-
-    private Random rand = new Random();
 
     public Player(String name) {
         this.name = name;
@@ -19,22 +15,13 @@ public class Player {
         return score;
     }
 
-    public void rollDice() {
-        int roll = rand.nextInt(6) + 1;
-
-        System.out.println(name + " rolled " + roll);
-
-        if (roll == 1) {
-            score = 0;
-            System.out.println(name + " score: " + score + "");
-        } else {
-            score += roll;
-            System.out.println(name + " score: " + score + "");
-        }
+    public void rollDice(int roll) {
+        System.out.println(name + " rolled: " + roll);
+        score = (roll == 1) ? 0 : score + roll;
+        System.out.println(name + " score: " + score);
     }
 
-    public boolean done() {
-        return score > 100;
+    public boolean isDone() {
+        return score >= 100;
     }
-
 }

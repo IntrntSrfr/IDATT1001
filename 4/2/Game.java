@@ -1,26 +1,28 @@
+import java.util.Random;
+
 public class Game {
     public static void main(String[] args) {
 
-        Player player1 = new Player("jeff");
-        Player player2 = new Player("lol");
+        Random rand = new Random();
 
-        Player[] list = { player1, player2 };
+        Player p1 = new Player("jeff");
+        Player p2 = new Player("lol");
 
-        int round = 0;
+        Player[] players = { p1, p2 };
+
         boolean done = false;
+        int round = 0;
         while (!done) {
-
             System.out.println("\nround " + round);
 
-            for (Player p : list) {
-                p.rollDice();
-                if (p.done()) {
-                    System.out.println("Player " + p.getName() + " won!");
+            for (Player p : players) {
+                p.rollDice((rand.nextInt(6) + 1));
+                if (p.isDone()) {
+                    System.out.println(p.getName() + " won!");
                     done = true;
                     break;
                 }
             }
-
             round++;
         }
     }

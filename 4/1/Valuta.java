@@ -1,21 +1,21 @@
 public class Valuta {
-    private String code;
-    private double ratio;
+    private String name;
+    private double value;
 
-    public Valuta(String code, double ratio) {
-        this.code = code;
-        this.ratio = ratio;
+    public Valuta(String name, double value) {
+        this.name = name;
+        this.value = value;
     }
 
     public String getName() {
-        return code;
+        return name;
     }
 
-    public double getRatio() {
-        return ratio;
+    public double getValue() {
+        return value;
     }
 
     public double convertTo(Valuta val, double amt) {
-        return (this.ratio / val.ratio) * amt;
+        return (this.value / val.value) * amt;
     }
 }

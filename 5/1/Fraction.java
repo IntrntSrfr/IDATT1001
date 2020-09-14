@@ -2,6 +2,46 @@ public class Fraction {
     private int numerator;
     private int denominator;
 
+    public static void main(String[] args) {
+
+        Fraction f1 = new Fraction(4, 5);
+        Fraction f2 = new Fraction(1, 5);
+
+        f1.add(f2);
+        System.out.println(f1.toString());
+
+        f1 = new Fraction(4, 5);
+        f2 = new Fraction(1, 5);
+
+        f1.subtract(f2);
+        System.out.println(f1.toString());
+
+        f1 = new Fraction(5);
+        f2 = new Fraction(1, 5);
+
+        f1.multiply(f2);
+        System.out.println(f1.toString());
+
+        f1 = new Fraction(5);
+        f2 = new Fraction(1, 5);
+
+        f1.divide(f2);
+        System.out.println(f1.toString());
+
+        try {
+            f1 = new Fraction(4, 0);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e);
+        }
+
+        f1 = new Fraction(-4, 5);
+        f2 = new Fraction(1, 53);
+
+        f1.subtract(f2);
+        System.out.println(f1.toString());
+
+    }
+
     public Fraction(int numerator, int denominator) {
         if (denominator == 0) {
             throw new IllegalArgumentException("denominator cannot be 0");
