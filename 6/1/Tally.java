@@ -6,15 +6,22 @@ public class Tally {
         Random rand = new Random();
         int[] tally = new int[10];
 
-        for (int i = 0; i < 10000; i++) {
+        int iters = 10;
+
+        for (int i = 0; i < iters; i++) {
             int num = rand.nextInt(10);
             tally[num]++;
         }
 
-        for (int i = 0; i < tally.length - 1; i++) {
+        for (int i = 0; i < tally.length; i++) {
             String stars = "";
-            Math.ceil(a)
-            System.out.println(i + " " + tally[i] + " times");
+            int sc = Math.round((float) tally[i] / iters * 100);
+
+            for (int j = 0; j < sc; j++) {
+                stars +="*";//concat("*");
+            }
+
+            System.out.println(i + " " + tally[i] + " " + stars);
         }
     }
 }
