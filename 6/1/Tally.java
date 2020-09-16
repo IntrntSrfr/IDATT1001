@@ -18,7 +18,7 @@ public class Tally {
             int sc = Math.round((float) tally[i] / iters * 100);
 
             for (int j = 0; j < sc; j++) {
-                stars +="*";//concat("*");
+                stars +="*";
             }
 
             System.out.println(i + " " + tally[i] + " " + stars);
