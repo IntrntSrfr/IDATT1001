@@ -16,6 +16,14 @@ public class Analyzer {
         System.out.println();
     }
 
+    public String getText(){
+        return text;
+    }
+
+    public int[] getTally(){
+        return charTally;
+    }
+
     private int translateToIndex(char c) {
         if (65 <= c && c <= 90) {
             return c - 65;
