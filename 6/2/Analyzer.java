@@ -16,11 +16,11 @@ public class Analyzer {
         System.out.println();
     }
 
-    public String getText(){
+    public String getText() {
         return text;
     }
 
-    public int[] getTally(){
+    public int[] getTally() {
         return charTally;
     }
 
@@ -71,20 +71,20 @@ public class Analyzer {
         return charTally[translateToIndex(c)];
     }
 
-    public void mostFrequentLetters(){
+    public void mostFrequentLetters() {
         int max = 0;
-        
+
         for (int i = 0; i < charTally.length - 1; i++) {
-            if(charTally[i]>max){
-                max=charTally[i];
+            if (charTally[i] > max) {
+                max = charTally[i];
             }
         }
 
         System.out.println("the most frequent characters are:");
-        
+
         for (int i = 0; i < charTally.length - 1; i++) {
-            if(charTally[i]==max){
-                System.out.print((char)(65+i) + " ");
+            if (charTally[i] == max && charTally[i] != 0) {
+                System.out.print((char) (65 + i) + " ");
             }
         }
         System.out.println();

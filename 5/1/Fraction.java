@@ -39,7 +39,6 @@ public class Fraction {
 
         f1.subtract(f2);
         System.out.println(f1.toString());
-
     }
 
     public Fraction(int numerator, int denominator) {
