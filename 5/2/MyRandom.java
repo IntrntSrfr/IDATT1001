@@ -16,7 +16,3 @@ public class MyRandom {
         return lower + (upper - lower) * rand.nextDouble();
     }
 }
-
-
-
-// 10 + ((40)*(0->1))

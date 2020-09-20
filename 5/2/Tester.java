@@ -18,10 +18,10 @@ public class Tester {
         System.out.println("lower int: " + lowerInt);
 
         // test from 3 to 7
-        double upperDouble = -4;
-        double lowerDouble = 7;
+        double upperDouble = 0.1;
+        double lowerDouble = 0.2;
         for (int i = 0; i < 10000; i++) {
-            double rd = r.nextDouble(-4, 7);
+            double rd = r.nextDouble(0.1, 0.2);
             if (rd < lowerDouble) {
                 lowerDouble = rd;
             } else if (rd > upperDouble) {
