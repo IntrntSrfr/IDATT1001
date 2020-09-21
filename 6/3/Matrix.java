@@ -1,4 +1,4 @@
-public final class Matrix {
+public class Matrix {
 
     private final int rows, cols;
     private final int[][] data;
@@ -66,7 +66,7 @@ public final class Matrix {
         if (cols != mtx.rows) {
             return null;
         }
-        
+
         int[][] res = new int[rows][mtx.cols];
 
         for (int i = 0; i < rows; i++) {

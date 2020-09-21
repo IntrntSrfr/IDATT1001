@@ -22,5 +22,10 @@ public class Calculator {
 
         Matrix mtx4 = new Matrix(new int[][] { { 1, 2, 3 }, { 3, 2, 1 } });
         System.out.println(mtx3.add(mtx4));
+
+        Matrix mtxT1 = new Matrix(new int[][] { { 1, 2 }, { 3, 2 } });
+        Matrix mtxT2 = new Matrix(new int[][] { { 1, 3 }, { 2, 2 } });
+
+        System.out.println(mtxT1.multiply(mtxT2));
     }
 }

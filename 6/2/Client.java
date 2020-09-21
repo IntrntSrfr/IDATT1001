@@ -1,5 +1,3 @@
-import java.nio.ByteBuffer;
-import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 public class Client {
@@ -7,12 +5,12 @@ public class Client {
 
         Scanner scan = new Scanner(System.in);
 
-        boolean exit = false;
-        while (!exit) {
+        while (true) {
             String inp = scan.nextLine();
             if (inp.equals("exit")) {
-                exit = true;
                 break;
+            }else if(inp.isBlank()||inp.isEmpty()){
+                continue;
             }
 
             Analyzer a = new Analyzer(inp);

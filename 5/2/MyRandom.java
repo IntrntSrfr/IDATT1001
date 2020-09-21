@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class MyRandom {
 
-    Random rand;
+    private Random rand;
 
     public MyRandom() {
         rand = new Random();

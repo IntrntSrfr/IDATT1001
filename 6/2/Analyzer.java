@@ -1,16 +1,27 @@
 public class Analyzer {
-
-    String text;
-    int[] charTally;
+    private String text;
+    private int[] charTally;
 
     public Analyzer(String text) {
         this.text = text;
-        charTally = new int[30];
+        this.charTally = new int[30];
 
         for (int i = 0; i < text.length(); i++) {
             char ic = text.charAt(i);
 
-            charTally[translateToIndex(ic)]++;
+            if (ic == 'æ' || ic == 'Æ') {
+                charTally[charTally.length - 4]++;
+            } else if
+            (ic == 'ø' || ic == 'Ø') {
+                charTally[charTally.length - 3]++;
+            } else if (ic
+                    == 'å' || ic == 'Å') {
+                charTally[charTally.length - 2]++;
+            } else {
+                charTally[translateToIndex(ic)]++;
+            }
+
+            //charTally[translateToIndex(ic)]++;
 
         }
         System.out.println();
@@ -84,7 +95,15 @@ public class Analyzer {
 
         for (int i = 0; i < charTally.length - 1; i++) {
             if (charTally[i] == max && charTally[i] != 0) {
-                System.out.print((char) (65 + i) + " ");
+                if(i == charTally.length-4){
+                    System.out.print("Æ");
+                }else if(i == charTally.length-3){
+                    System.out.print("Ø");
+                }else if(i == charTally.length-2){
+                    System.out.print("Å");
+                }else{
+                    System.out.print((char) (65 + i) + " ");
+                }
             }
         }
         System.out.println();
