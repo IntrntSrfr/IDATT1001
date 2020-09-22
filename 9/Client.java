@@ -13,6 +13,15 @@ public class Client {
 
         t.markTask("jeff");
 
+        
+        System.out.println(t);
+        
+        for(int i = 0;i<40;i++){
+            if(!t.registerStudent(new Student("jeff"+i))){
+                break;
+            }
+        }
+
         System.out.println(t.getStudentByName("jeff"));
         System.out.println(t.getStudentByName("asd"));
 

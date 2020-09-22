@@ -1,18 +1,25 @@
-import java.util.ArrayList;
-
 public class TaskOverview {
-    ArrayList<Student> students;
+    private Student[] students;
+    private int registrations;
 
     public TaskOverview() {
-        students = new ArrayList<Student>();
+        students = new Student[30];
+        registrations = 0;
     }
 
-    public int getStudentAmt() {
-        return students.size();
+    public Student[] getStudents(){
+        return students;
+    }
+
+    public int getRegistrations() {
+        return registrations;
     }
 
     public Student getStudentByName(String name) {
         for (Student s : students) {
+            if(s == null){
+                continue;
+            }
             if (s.getName().equals(name)) {
                 return s;
             }
@@ -24,8 +31,14 @@ public class TaskOverview {
         return getStudentByName(name).getFinishedTasks();
     }
 
-    public void registerStudent(Student s) {
-        students.add(s);
+    public boolean registerStudent(Student s) {
+        if (registrations + 1 > students.length) {
+            return false;
+        }
+
+        students[registrations] = s;
+        registrations++;
+        return true;
     }
 
     public void markTask(String name) {
@@ -38,6 +51,6 @@ public class TaskOverview {
     }
 
     public String toString() {
-        return String.format("%d students", students.size());
+        return String.format("%d students", registrations);
     }
 }
