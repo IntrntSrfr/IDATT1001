@@ -95,13 +95,13 @@ public class Analyzer {
 
         for (int i = 0; i < charTally.length - 1; i++) {
             if (charTally[i] == max && charTally[i] != 0) {
-                if(i == charTally.length-4){
+                if (i == charTally.length - 4) {
                     System.out.print("Æ");
-                }else if(i == charTally.length-3){
+                } else if (i == charTally.length - 3) {
                     System.out.print("Ø");
-                }else if(i == charTally.length-2){
+                } else if (i == charTally.length - 2) {
                     System.out.print("Å");
-                }else{
+                } else {
                     System.out.print((char) (65 + i) + " ");
                 }
             }

@@ -14,11 +14,11 @@ public class Tally {
         }
 
         for (int i = 0; i < tally.length; i++) {
-            String stars = "";
+            StringBuilder stars = new StringBuilder();
             int sc = Math.round((float) tally[i] / iters * 100);
 
             for (int j = 0; j < sc; j++) {
-                stars += "*";
+                stars.append("*");
             }
 
             System.out.println(i + " " + tally[i] + " " + stars);

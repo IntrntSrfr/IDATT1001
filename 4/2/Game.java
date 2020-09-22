@@ -8,7 +8,7 @@ public class Game {
         Player p1 = new Player("jeff");
         Player p2 = new Player("lol");
 
-        Player[] players = { p1, p2 };
+        Player[] players = {p1, p2};
 
         boolean done = false;
         int round = 0;

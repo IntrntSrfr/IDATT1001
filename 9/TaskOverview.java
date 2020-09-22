@@ -7,7 +7,7 @@ public class TaskOverview {
         registrations = 0;
     }
 
-    public Student[] getStudents(){
+    public Student[] getStudents() {
         return students;
     }
 
@@ -17,7 +17,7 @@ public class TaskOverview {
 
     public Student getStudentByName(String name) {
         for (Student s : students) {
-            if(s == null){
+            if (s == null) {
                 continue;
             }
             if (s.getName().equals(name)) {
