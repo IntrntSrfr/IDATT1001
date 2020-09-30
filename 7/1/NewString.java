@@ -1,11 +1,11 @@
 public final class NewString {
 
     public static void main(String[] args) {
-        String inp = "DENNE setningen kan FORKORTES";
+        String inp = "DENNE setningen kan FORKORTES      æøåæ ØÅÆ  ";
 
-
-        System.out.println(new NewString(inp).firstLetters());
-        System.out.println(new NewString(inp).removeLetter("n"));
+        NewString lol = new NewString(inp);
+        System.out.println(lol.firstLetters());
+        System.out.println(lol.removeLetter("n"));
     }
 
     final String text;
@@ -19,11 +19,13 @@ public final class NewString {
     }
 
     public String firstLetters() {
-        StringBuilder sb = new StringBuilder();
+        String s = "";
         for (String l : text.split(" ")) {
-            sb.append(l.charAt(0));
+            if (l.length() > 0){
+                s+=l.charAt(0);
+            }
         }
-        return sb.toString();
+        return s;
     }
 
     public String removeLetter(String c) {
