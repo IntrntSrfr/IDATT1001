@@ -8,9 +8,9 @@ public class ArbTaker {
     private double salary;
     private double taxPercent;
 
-    private static GregorianCalendar cal = new GregorianCalendar();
+    private static final GregorianCalendar cal = new GregorianCalendar();
 
-    public ArbTaker(Person personalia, int workerID, int employmentYear, double salary, double taxPercent){
+    public ArbTaker(Person personalia, int workerID, int employmentYear, double salary, double taxPercent) {
         this.personalia = personalia;
         this.workerID = workerID;
         this.employmentYear = employmentYear;
@@ -20,6 +20,14 @@ public class ArbTaker {
 
     public Person getPersonalia() {
         return personalia;
+    }
+
+    public void setFirstName(String firstName) {
+        this.personalia.setFirstName(firstName);
+    }
+
+    public void setLastName(String lastName) {
+        this.personalia.setFirstName(lastName);
     }
 
     public int getWorkerID() {
@@ -46,34 +54,40 @@ public class ArbTaker {
         this.taxPercent = taxPercent;
     }
 
-    public double taxPaid(){
-        return salary*taxPercent;
-    }
-    public double getSalaryBeforeTax(){
-        return salary;
-    }
-    public double getSalaryAfterTax(){
-        return salary-taxPaid();
-    }
-    public double taxesPaidYear(){
-        return (taxPaid()*10)+(taxPaid()/2);
+    public double taxPaid() {
+        return salary * taxPercent;
     }
 
-    public String getName(){
+    public double getSalaryBeforeTax() {
+        return salary;
+    }
+
+    public double getSalaryAfterTax() {
+        return salary - taxPaid();
+    }
+
+    public double taxesPaidYear() {
+        double tp = taxPaid();
+        return (tp * 10) + (tp / 2);
+    }
+
+    public String getName() {
         return String.format("%s, %s", personalia.getLastName(), personalia.getFirstName());
     }
 
-    public int getAge(){
-        return cal.get(Calendar.YEAR)-personalia.getBirthYear();
+    public int getAge() {
+        return cal.get(Calendar.YEAR) - personalia.getBirthYear();
     }
 
-    public int getYearsEmployed(){
-        return cal.get(Calendar.YEAR)-employmentYear;
+    public int getYearsEmployed() {
+        return cal.get(Calendar.YEAR) - employmentYear;
     }
 
-    public boolean beenEmployedLongerThan(int years){
+    public boolean beenEmployedLongerThan(int years) {
         return getYearsEmployed() > years;
     }
 
-
+    public String toString() {
+        return String.format("Name: %s\nAge: %d\nSalary: %f\nTax percent: %f\nSalary after tax: %f", getName(), getAge(), getSalary(), getTaxPercent(), getSalaryAfterTax());
+    }
 }

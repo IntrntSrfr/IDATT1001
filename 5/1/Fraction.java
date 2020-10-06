@@ -31,7 +31,7 @@ public class Fraction {
         try {
             f1 = new Fraction(4, 0);
         } catch (IllegalArgumentException e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         }
 
         f1 = new Fraction(-4, 5);

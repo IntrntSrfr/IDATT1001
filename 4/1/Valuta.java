@@ -1,6 +1,6 @@
 public class Valuta {
-    private String name;
-    private double value;
+    private final String name;
+    private final double value;
 
     public Valuta(String name, double value) {
         this.name = name;

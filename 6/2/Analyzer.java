@@ -1,6 +1,6 @@
 public class Analyzer {
-    private String text;
-    private int[] charTally;
+    private final String text;
+    private final int[] charTally;
 
     public Analyzer(String text) {
         this.text = text;

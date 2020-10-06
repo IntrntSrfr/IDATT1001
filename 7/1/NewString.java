@@ -21,8 +21,8 @@ public final class NewString {
     public String firstLetters() {
         String s = "";
         for (String l : text.split(" ")) {
-            if (l.length() > 0){
-                s+=l.charAt(0);
+            if (l.length() > 0) {
+                s += l.charAt(0);
             }
         }
         return s;

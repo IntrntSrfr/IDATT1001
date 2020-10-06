@@ -1,6 +1,6 @@
 public class Client {
     public static void main(String[] args) {
-        TaskOverview t = new TaskOverview();
+        TaskOverview t = new TaskOverview(5);
 
         System.out.println(t);
 
@@ -13,18 +13,30 @@ public class Client {
 
         t.markTask("jeff");
 
+        boolean ok1 = t.registerStudent(new Student("jeff"));
+        boolean ok2 = t.getStudentByName("asd") == null;
+        boolean ok3 = t.getStudentByName("jeff").taskAmount == 1;
+
+        if (!ok1 && ok2 && ok3) {
+            System.out.println("test 1 ok");
+        }
 
         System.out.println(t);
 
-        for (int i = 0; i < 40; i++) {
+        for (int i = 0; i < 6; i++) {
             if (!t.registerStudent(new Student("jeff" + i))) {
                 break;
             }
+        }
+
+        if (t.getRegistrations() == 9 && t.getStudents().length == 11) {
+            System.out.println("test 2 ok");
         }
 
         System.out.println(t.getStudentByName("jeff"));
         System.out.println(t.getStudentByName("asd"));
 
         System.out.println(t);
+        System.out.println(t.getStudents().length);
     }
 }
