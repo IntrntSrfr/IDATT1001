@@ -67,8 +67,7 @@ public class ArbTaker {
     }
 
     public double taxesPaidYear() {
-        double tp = taxPaid();
-        return (tp * 10) + (tp / 2);
+        return taxPaid()*(10+0.5);
     }
 
     public String getName() {
