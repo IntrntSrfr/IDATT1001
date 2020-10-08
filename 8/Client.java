@@ -10,6 +10,5 @@ public class Client {
         System.out.println(at1.getSalaryAfterTax());
         System.out.println(at1.taxesPaidYear());
         System.out.println(at1.beenEmployedLongerThan(10));
-
     }
 }

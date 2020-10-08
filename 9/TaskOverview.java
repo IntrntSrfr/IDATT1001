@@ -9,6 +9,9 @@ public class TaskOverview {
         registrations = 0;
     }
 
+    private void growStudents() {
+        students = Arrays.copyOf(students, students.length + 3);
+    }
     public Student[] getStudents() {
         return students;
     }
@@ -17,9 +20,6 @@ public class TaskOverview {
         return registrations;
     }
 
-    private void growStudents() {
-        students = Arrays.copyOf(students, students.length + 3);
-    }
 
     public Student getStudentByName(String name) {
         for (Student s : students) {
