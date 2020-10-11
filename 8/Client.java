@@ -6,10 +6,23 @@ public class Client {
         System.out.println(at1.getName());
         System.out.println(at1.getAge());
         System.out.println(at1.getSalaryBeforeTax());
-        System.out.println(at1.taxPaid());
+        System.out.println(at1.getTaxPaid());
         System.out.println(at1.getSalaryAfterTax());
-        System.out.println(at1.taxesPaidYear());
+        System.out.println(at1.getTaxesPaidYear());
         System.out.println(at1.beenEmployedLongerThan(10));
+        System.out.println(at1.beenEmployedLongerThan(5));
+        System.out.println(at1.beenEmployedLongerThan(4));
 
+        try{
+            at1.setSalary(-3000);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try{
+            at1.setTaxPercent(40);
+        }catch(IllegalArgumentException e){
+            System.out.println(e.getMessage());
+        }
     }
 }

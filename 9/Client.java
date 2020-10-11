@@ -13,6 +13,12 @@ public class Client {
 
         t.markTask("jeff");
 
+        try{
+            Student s4 = new Student("");
+        }catch (IllegalArgumentException e ){
+            System.out.println(e.getMessage());
+        }
+
         boolean ok1 = t.registerStudent(new Student("jeff"));
         boolean ok2 = t.getStudentByName("asd") == null;
         boolean ok3 = t.getStudentByName("jeff").taskAmount == 1;
@@ -32,11 +38,5 @@ public class Client {
         if (t.getRegistrations() == 9 && t.getStudents().length == 11) {
             System.out.println("test 2 ok");
         }
-
-        System.out.println(t.getStudentByName("jeff"));
-        System.out.println(t.getStudentByName("asd"));
-
-        System.out.println(t);
-        System.out.println(t.getStudents().length);
     }
 }

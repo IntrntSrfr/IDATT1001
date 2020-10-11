@@ -14,7 +14,8 @@ public class Client {
         er.registerEvent(new Event(202010311800L, "Halloween", "Norge", "Alle mann", "Feiring"));
 
         while (true) {
-            System.out.println("1. Register new event\n2. Get events at location\n3. Get events at date\n4. Get events between dates\n5. Get events sorted by ...\n6. Exit");
+            System.out.println("1. Register new event\n2. Get events at location\n3. Get events at date\n" +
+                    "4. Get events between dates\n5. Get events sorted by ...\n6. Exit");
 
             String inp = scan.nextLine();
 

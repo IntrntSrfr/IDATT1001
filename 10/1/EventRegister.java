@@ -26,6 +26,7 @@ public class EventRegister {
     public void removeEvent(int ID){
         events.removeIf(t -> t.getEventId() == eventID);
     }
+
     public List<Event> getEventsByLocation(String location) {
         return events.stream()
                 .filter(t -> t.getLocation().toLowerCase().equals(location.toLowerCase()))

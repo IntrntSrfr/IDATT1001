@@ -24,7 +24,7 @@ public class TaskOverview {
     public Student getStudentByName(String name) {
         for (Student s : students) {
             if (s == null) {
-                continue;
+                break;
             }
             if (s.getName().toLowerCase().equals(name.toLowerCase())) {
                 return s;

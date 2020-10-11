@@ -21,6 +21,7 @@ public class ArbTaker {
     public Person getPersonalia() {
         return personalia;
     }
+/*
 
     public void setFirstName(String firstName) {
         this.personalia.setFirstName(firstName);
@@ -29,6 +30,7 @@ public class ArbTaker {
     public void setLastName(String lastName) {
         this.personalia.setFirstName(lastName);
     }
+*/
 
     public int getWorkerID() {
         return workerID;
@@ -41,8 +43,14 @@ public class ArbTaker {
     public double getSalary() {
         return salary;
     }
+    public double getSalaryPerYear() {
+        return salary*12;
+    }
 
-    public void setSalary(double salary) {
+    public void setSalary(double salary) throws IllegalArgumentException {
+        if (salary < 0 ){
+            throw new IllegalArgumentException("Salary cannot be negative.");
+        }
         this.salary = salary;
     }
 
@@ -50,11 +58,14 @@ public class ArbTaker {
         return taxPercent;
     }
 
-    public void setTaxPercent(double taxPercent) {
+    public void setTaxPercent(double taxPercent) throws IllegalArgumentException {
+        if(0>taxPercent || taxPercent > 1){
+            throw new IllegalArgumentException("Salary cannot be above 1 or below 0");
+        }
         this.taxPercent = taxPercent;
     }
 
-    public double taxPaid() {
+    public double getTaxPaid() {
         return salary * taxPercent;
     }
 
@@ -63,12 +74,11 @@ public class ArbTaker {
     }
 
     public double getSalaryAfterTax() {
-        return salary - taxPaid();
+        return salary - getTaxPaid();
     }
 
-    public double taxesPaidYear() {
-        double tp = taxPaid();
-        return (tp * 10) + (tp / 2);
+    public double getTaxesPaidYear() {
+        return getTaxPaid() * (10 + 0.5);
     }
 
     public String getName() {
@@ -88,6 +98,11 @@ public class ArbTaker {
     }
 
     public String toString() {
-        return String.format("Name: %s\nAge: %d\nSalary: %f\nTax percent: %f\nSalary after tax: %f", getName(), getAge(), getSalary(), getTaxPercent(), getSalaryAfterTax());
+        return String.format("Name: %s\n" +
+                "Age: %d\nSalary: %f\n" +
+                "Tax percent: %f\nSalary after tax: %f\n" +
+                "Taxes paid per month: %f\nTaxes paid per year: %f",
+                getName(), getAge(), getSalary(),
+                getTaxPercent(), getSalaryAfterTax(), getTaxPaid(), getTaxesPaidYear());
     }
 }

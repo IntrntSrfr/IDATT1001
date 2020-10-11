@@ -12,7 +12,10 @@ public class Student {
 
     }
 
-    public Student(String name) {
+    public Student(String name) throws IllegalArgumentException {
+        if(name.isBlank()){
+            throw new IllegalArgumentException("Name cannot be blank");
+        }
         this.name = name;
         taskAmount = 0;
     }
