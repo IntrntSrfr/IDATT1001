@@ -44,11 +44,13 @@ public class Event {
         return type;
     }
 
-    //@Override
+    @Override
     public String toString() {
         return "Event{" +
                 "date=" + date +
+                ", name='" + name + '\'' +
                 ", location='" + location + '\'' +
+                ", arranger='" + arranger + '\'' +
                 ", type='" + type + '\'' +
                 '}';
     }

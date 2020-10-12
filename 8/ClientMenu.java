@@ -28,7 +28,7 @@ public class ClientMenu {
                     newSalary = Double.parseDouble(scan.nextLine());
                     a1.setSalary(newSalary);
                     System.out.println(a1.getSalary());
-                } catch (Exception e) {
+                } catch (IllegalArgumentException e) {
                     System.out.println(e.getMessage());
                 }
             } else if (inp.equals("2")) {

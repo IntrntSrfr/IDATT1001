@@ -54,6 +54,7 @@ public class ArbTaker {
         this.salary = salary;
     }
 
+
     public double getTaxPercent() {
         return taxPercent;
     }
