@@ -42,7 +42,7 @@ public class Client {
                 String[] inputs = new String[4];
 
                 for (int i = 0; i < queries.length; i++) {
-                    while(true){
+                    while (true) {
                         System.out.println(queries[i]);
                         String curInp = scan.nextLine();
                         if (curInp.isBlank()) {
@@ -53,7 +53,7 @@ public class Client {
                     }
                 }
 
-                if (er.registerEvent(new Event(date, inputs[0],inputs[1],inputs[2],inputs[3]))) {
+                if (er.registerEvent(new Event(date, inputs[0], inputs[1], inputs[2], inputs[3]))) {
                     System.out.printf("Event '%s' registered successfully.%n", inputs[0]);
                     continue;
                 }

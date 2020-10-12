@@ -20,7 +20,6 @@ public class TaskOverview {
         return registrations;
     }
 
-
     public Student getStudentByName(String name) {
         for (Student s : students) {
             if (s == null) {
