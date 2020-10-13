@@ -1,9 +1,7 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Menu {
-    private ArrayList<Dish> dishes;
+    private final ArrayList<Dish> dishes;
 
     public Menu(ArrayList<Dish> dishes) {
         if (dishes.size() < 3) {

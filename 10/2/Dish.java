@@ -5,13 +5,19 @@ public class Dish {
     private double price;
     private final String recipe;
 
-    enum Type{
+    enum Type {
         ENTRY,
         MAIN,
         DESSERT
     }
 
-    public Dish(String name, String recipe, int price, Type type){
+    public Dish(String name, String recipe, int price, Type type) throws IllegalArgumentException {
+        if (name.isBlank() || recipe.isBlank()) {
+            throw new IllegalArgumentException("Fields cannot be blank");
+        } else if (price < 0) {
+            throw new IllegalArgumentException("Price cannot be negative");
+        }
+
         this.name = name;
         this.type = type;
         this.price = price;
@@ -29,8 +35,12 @@ public class Dish {
     public double getPrice() {
         return price;
     }
+
     public void setPrice(double price) {
-        this.price= price;
+        if (price < 0) {
+            throw new IllegalArgumentException("Price cannot be negative");
+        }
+        this.price = price;
     }
 
     public String getRecipe() {
