@@ -9,7 +9,7 @@ public class EventRegister {
     private int eventID;
 
     public EventRegister() {
-        this.events = new ArrayList<Event>();
+        this.events = new ArrayList<>();
         eventID = 0;
     }
 
@@ -17,7 +17,7 @@ public class EventRegister {
         return events;
     }
 
-    public boolean registerEvent(Event e) throws IllegalArgumentException {
+    public boolean registerEvent(Event e) {
         e.setEventId(eventID);
         eventID++;
         return events.add(e);
@@ -44,7 +44,7 @@ public class EventRegister {
                 .filter(t -> t.getDate()/10000 == date)
                 //.filter(t -> Long.toString(t.getDate()).startsWith(Long.toString(date)))
                 //.sorted((t1, t2) -> (int) (t1.getDate() - t2.getDate()))
-                .sorted(Comparator.comparingLong(Event::getDate))
+                .sorted(Comparator.comparing(Event::getDate))
                 .collect(Collectors.toList());
     }
 
@@ -57,7 +57,7 @@ public class EventRegister {
     }
 
     public List<Event> getEventsSortedByDate() {
-        return events.stream().sorted(Comparator.comparingLong(Event::getDate)).collect(Collectors.toList());
+        return events.stream().sorted(Comparator.comparing(Event::getDate)).collect(Collectors.toList());
     }
 
     public List<Event> getEventsById(int id) {
@@ -68,7 +68,7 @@ public class EventRegister {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for (Event e : events) {
-            sb.append(e.toString()+ "lol");
+            sb.append(e.toString());
         }
         return sb.toString();
     }

@@ -7,7 +7,14 @@ public class Event {
     private final String arranger;
     private final String type;
 
-    public Event(long timestamp, String name, String location, String arranger, String type) {
+    public Event(long timestamp, String name, String location, String arranger, String type) throws IllegalArgumentException{
+        if(timestamp < 100000000000L || timestamp > 999999999999L){
+            throw new IllegalArgumentException("Invalid timestamp");
+        }
+        if(name.isBlank() || location.isBlank() || arranger.isBlank() || type.isBlank()){
+            throw new IllegalArgumentException("Fields cannot be blank.");
+        }
+
         this.eventId = 0;
         this.date = timestamp;
         this.name = name;

@@ -7,8 +7,8 @@ public class MenuRegister {
     private final ArrayList<Menu> menus;
 
     public MenuRegister() {
-        this.dishes = new ArrayList<Dish>();
-        this.menus = new ArrayList<Menu>();
+        this.dishes = new ArrayList<>();
+        this.menus = new ArrayList<>();
     }
 
     public void registerDish(Dish dish) throws IllegalArgumentException {
@@ -35,9 +35,6 @@ public class MenuRegister {
 
     public Dish getDishByName(String name) {
         for (Dish d : dishes) {
-            if (d == null) {
-                break;
-            }
             if (d.getName().toLowerCase().equals(name.toLowerCase())) {
                 return d;
             }

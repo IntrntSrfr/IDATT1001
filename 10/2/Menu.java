@@ -14,6 +14,7 @@ public class Menu {
         return dishes.stream().mapToDouble(Dish::getPrice).sum();
     }
 
+
     @Override
     public String toString() {
         return "Menu{" +

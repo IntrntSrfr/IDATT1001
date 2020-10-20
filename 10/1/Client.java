@@ -5,6 +5,7 @@ public class Client {
         Scanner scan = new Scanner(System.in);
 
         EventRegister er = new EventRegister();
+        /*
 
         er.registerEvent(new Event(202104201600L, "TG 2021", "Hamar", "TG", "LAN Party"));
         er.registerEvent(new Event(202004201600L, "TG 2020", "Hamar", "TG", "LAN Party"));
@@ -12,6 +13,21 @@ public class Client {
         er.registerEvent(new Event(201804201600L, "TG 2018", "Hamar", "TG", "LAN Party"));
         er.registerEvent(new Event(201801031600L, "Allsang på grensa", "Grensa", "Allsang folka", "Festival"));
         er.registerEvent(new Event(202010311800L, "Halloween", "Norge", "Alle mann", "Feiring"));
+*/
+
+        er.registerEvent(new Event(202101011600L, "A", "D", "A", "A"));
+        er.registerEvent(new Event(202001011600L, "B", "B", "B", "B"));
+        er.registerEvent(new Event(201901011600L, "D", "A", "C", "C"));
+        er.registerEvent(new Event(201801011600L, "C", "Z", "D", "D"));
+        er.registerEvent(new Event(201701011600L, "Z", "X", "X", "X"));
+        er.registerEvent(new Event(201601011800L, "Y", "Y", "Y", "Z"));
+/*
+        try{
+            Event e = new Event(201601011800L, "", "A", "B", "D");
+        }catch (IllegalArgumentException e){
+            System.out.println(e.getMessage());
+        }
+*/
 
         while (true) {
             System.out.println("1. Register new event\n2. Get events at location\n3. Get events at date\n" +
@@ -53,11 +69,14 @@ public class Client {
                     }
                 }
 
-                if (er.registerEvent(new Event(date, inputs[0], inputs[1], inputs[2], inputs[3]))) {
-                    System.out.printf("Event '%s' registered successfully.%n", inputs[0]);
-                    continue;
+                try{
+                    if (er.registerEvent(new Event(date, inputs[0], inputs[1], inputs[2], inputs[3]))) {
+                        System.out.printf("Event '%s' registered successfully.%n", inputs[0]);
+                    }
+                } catch (IllegalArgumentException e){
+                    System.out.println(e.getMessage());
+                    System.out.println("Could not register event.");
                 }
-                System.out.println("Could not register event.");
             } else if (inp.equals("2")) {
                 String location = scan.nextLine();
                 System.out.println(er.getEventsByLocation(location));
