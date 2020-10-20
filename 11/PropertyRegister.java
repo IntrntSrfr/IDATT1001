@@ -6,7 +6,7 @@ public class PropertyRegister {
     ArrayList<Property> properties;
 
 
-    public PropertyRegister(ArrayList<Property> properties) {
+    public PropertyRegister() {
         this.properties = new ArrayList<>();
     }
 
@@ -31,7 +31,7 @@ public class PropertyRegister {
         return properties.stream().filter(t->t.getLotNumber()==lotNr).collect(Collectors.toList());
     }
 
-    public double ShowTotalArea(){
-        return properties.stream().mapToDouble(Property::getArea).sum();
+    public double ShowTotalAverageArea(){
+        return properties.stream().mapToDouble(Property::getArea).sum()/properties.size();
     }
 }
