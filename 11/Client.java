@@ -13,43 +13,78 @@ public class Client {
         reg.registerProperty(new Property(1445, "Gloppen", 69, 47, "Høiberg", 1339.4, "Elsa Indregård"));
 
         while(true){
-            System.out.println("""
-                    1. Register Property
-                    2. Print all properties
-                    3. Search property by ..
-                    4. Show total average area
-                    5. Exit""");
+            System.out.println("1. Register Property\n2. Print all properties\n3. Search property\n4. Show total average area\n5. Exit");
             String inp = scan.nextLine();
 
             if(inp.equals("1")){
-                int munNr, lotNr, secNr, area;
-                String mun, name, owner;
+                int munNr=0, lotNr=0, secNr=0;
+                double area = 0.0;
+                String mun="", name="", owner="";
+
+                try{
+                    System.out.println("Municipality number:");
+                    inp = scan.nextLine();
+                    munNr = Integer.parseInt(inp);
+
+                    System.out.println("Municipality name:");
+                    inp = scan.nextLine();
+                    mun = inp;
+
+                    System.out.println("Lot number:");
+                    inp = scan.nextLine();
+                    lotNr = Integer.parseInt(inp);
+
+                    System.out.println("Section number:");
+                    inp = scan.nextLine();
+                    secNr = Integer.parseInt(inp);
+
+                    System.out.println("Property name:");
+                    inp = scan.nextLine();
+                    name = inp;
+
+                    System.out.println("Area (decimals allowed):");
+                    inp = scan.nextLine();
+                    area = Double.parseDouble(inp);
+
+                    System.out.println("Owner name:");
+                    inp = scan.nextLine();
+                    owner = inp;
+                }catch (NumberFormatException e){
+                    System.out.println(e.getMessage());
+                }
+                reg.registerProperty(new Property(munNr, mun, lotNr, secNr, name, area, owner));
+
+
             }else if(inp.equals("2")){
                 reg.showAllProperties();
             }else if(inp.equals("3")){
-                while(true){
-                    System.out.println("""
-                            1. Lot nr
-                            2. Section nr
-                            3. Mun. nr
-                            4. All of the above
-                            5. Back""");
-                    String inp2 = scan.nextLine();
-                    if(inp2.equals("1")){
+                int munNr = 0, lotNr=0, secNr=0;
 
-                    }else if(inp2.equals("2")) {
+                try{
+                    System.out.println("Municipality number:");
+                    inp = scan.nextLine();
+                    munNr = Integer.parseInt(inp);
 
-                    }else if(inp2.equals("3")){
+                    System.out.println("Lot number:");
+                    inp = scan.nextLine();
+                    lotNr = Integer.parseInt(inp);
 
-                    }else if(inp2.equals("4")){
-
-                    }else if(inp2.equals("5")){
-                        break;
-                    }
+                    System.out.println("Section number:");
+                    inp = scan.nextLine();
+                    secNr = Integer.parseInt(inp);
+                }catch (NumberFormatException e){
+                    System.out.println(e.getMessage());
                 }
-                // search by
+
+                Property p = reg.getPropertyByInfo(munNr, lotNr, secNr);
+                if (p == null) {
+                    System.out.println("No property found");
+                    continue;
+                }
+                System.out.println(p.toString());
+
             }else if(inp.equals("4")){
-                System.out.println(reg.showTotalAverageArea());
+                System.out.println(reg.getTotalAverageArea());
             }else if(inp.equals("5")){
                 break;
             }

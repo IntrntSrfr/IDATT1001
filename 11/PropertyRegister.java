@@ -14,8 +14,8 @@ import java.util.stream.Collectors;
  */
 public class PropertyRegister {
 
-    // The ArrayList where the properties are kept
-    ArrayList<Property> properties;
+    // The ArrayList where the properties are stored
+    private final ArrayList<Property> properties;
 
 
     /**
@@ -29,8 +29,13 @@ public class PropertyRegister {
      * Registers a new property to the collection
      *
      * @param p The {@link Property} to be registered
+     *
+     * @throws IllegalArgumentException if a property with the same identifying properties already exists in the registry
      */
-    public void registerProperty(Property p) {
+    public void registerProperty(Property p) throws IllegalArgumentException{
+        if(getPropertyByInfo(p.getMunicipalityNumber(), p.getLotNumber(), p.getSectionNumber()) != null){
+            throw new IllegalArgumentException("Property already exists");
+        }
         properties.add(p);
     }
 
@@ -44,10 +49,7 @@ public class PropertyRegister {
      * @return returns true if any properties were removed, false otherwise
      */
     public boolean removeProperty(int munNr, int lotNr, int secNr) {
-        return properties.removeIf(t ->
-                t.getMunicipalityNumber() == munNr &&
-                        t.getLotNumber() == lotNr &&
-                        t.getSectionNumber() == secNr);
+        return properties.remove(getPropertyByInfo(munNr, lotNr, secNr));
     }
 
     /**
@@ -64,7 +66,10 @@ public class PropertyRegister {
      * Prints every {@link Property}
      */
     public void showAllProperties() {
-        properties.forEach(t -> System.out.println(t.toString()));
+        //properties.forEach(System.out::println);
+        for(Property p : properties){
+            System.out.println(p.toString());
+        }
     }
 
     /**
@@ -101,7 +106,7 @@ public class PropertyRegister {
      *
      * @return a double with the total average area across the properties
      */
-    public double showTotalAverageArea() {
+    public double getTotalAverageArea() {
         return properties.stream().mapToDouble(Property::getArea).sum() / properties.size();
     }
 

@@ -36,11 +36,14 @@ public class Property {
      */
     public Property(int municipalityNumber, String municipalityName, int lotNumber, int sectionNumber, String name,
                     double area, String ownerName) throws IllegalArgumentException {
-
-        if(lotNumber<0 || sectionNumber<0 || area < 0){
+        if(municipalityNumber < 101 || municipalityNumber> 5054){
+            throw new IllegalArgumentException("Municipalitynumber outside allowed range");
+        }
+        if(lotNumber<=0 || sectionNumber<=0 || area <= 0){
             throw new IllegalArgumentException("Lot/section number or area cannot be negative");
-        }else if (ownerName.isBlank()){
-            throw new IllegalArgumentException("Owner name is required");
+        }
+        if (ownerName.isBlank()||municipalityName.isBlank()){
+            throw new IllegalArgumentException("Owner/municipality name is required");
         }
 
         this.municipalityNumber = municipalityNumber;
@@ -90,8 +93,13 @@ public class Property {
      * Sets a new size of the lot area. This is in the case of expansion or contraction of the lot
      *
      * @param area The new size of the area
+     *
+     * @throws IllegalArgumentException if the area given is not positive
      */
-    public void setArea(double area) {
+    public void setArea(double area)throws IllegalArgumentException {
+        if (area <= 0){
+            throw new IllegalArgumentException("Area has to be positive");
+        }
         this.area = area;
     }
 
@@ -101,7 +109,7 @@ public class Property {
     }
 
     /**
-     * Sets a new name for the owner. In case the owner changes, or if the owner changes name
+     * Sets a new name for the owner. In case the owner changes, or if the owner changes name, or if property is abandoned
      *
      * @param ownerName The new name of the owner
      */
