@@ -66,7 +66,8 @@ public class PropertyRegister {
      * Prints every {@link Property}
      */
     public void showAllProperties() {
-        //properties.forEach(System.out::println);
+        // this can also be used, I just havent because of the sequence diagram
+        // properties.forEach(System.out::println);
         for(Property p : properties){
             System.out.println(p.toString());
         }
