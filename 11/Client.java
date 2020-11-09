@@ -17,9 +17,9 @@ public class Client {
             String inp = scan.nextLine();
 
             if(inp.equals("1")){
-                int munNr=0, lotNr=0, secNr=0;
-                double area = 0.0;
-                String mun="", name="", owner="";
+                int munNr, lotNr, secNr;
+                double area;
+                String mun, name, owner;
 
                 try{
                     System.out.println("Municipality number:");
@@ -49,11 +49,14 @@ public class Client {
                     System.out.println("Owner name:");
                     inp = scan.nextLine();
                     owner = inp;
-                }catch (NumberFormatException e){
-                    System.out.println(e.getMessage());
-                }
-                reg.registerProperty(new Property(munNr, mun, lotNr, secNr, name, area, owner));
 
+                    reg.registerProperty(new Property(munNr, mun, lotNr, secNr, name, area, owner));
+                }catch (Exception e){
+                    System.out.println(e.getMessage());
+                    continue;
+                }
+
+                System.out.println("Property registered successfully");
 
             }else if(inp.equals("2")){
                 reg.showAllProperties();
