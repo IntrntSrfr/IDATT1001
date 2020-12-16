@@ -1,5 +1,5 @@
 /**
- * A property object that contains information about a property, which can be edited at any time.
+ * A property object that contains information about a property.
  * <p>
  * There are several properties that are not final.
  * Those properties are the name of the property, the area of the property and the name of the owner.

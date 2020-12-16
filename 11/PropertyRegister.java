@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * A property register to manage several properties and get information about them.
+ * A property register to manage several properties and acquire information about them.
  * <p>
  * An ArrayList of type {@link Property} is used in favor of an array because it is much easier to work with ArrayList
  * when it comes to registering new info, as well ArrayLists have generic functions we can use to get the same info
@@ -60,14 +60,16 @@ public class PropertyRegister {
         return properties.size();
     }
 
-
-
     /**
      * Prints every {@link Property}
      */
     public void showAllProperties() {
         // this can also be used, I just havent because of the sequence diagram
         // properties.forEach(System.out::println);
+
+        // this can also be used
+        //System.out.println(toString());
+
         for(Property p : properties){
             System.out.println(p.toString());
         }
@@ -90,6 +92,8 @@ public class PropertyRegister {
                         t.getSectionNumber() == secNr)
                 .findFirst()
                 .orElse(null);
+        // We can use findFirst() because we know its only one of each property in the list because we are
+        // checking every property for a duplicate when they are registered
     }
 
     /**
@@ -108,13 +112,14 @@ public class PropertyRegister {
      * @return a double with the total average area across the properties
      */
     public double getTotalAverageArea() {
+        // Not using getTotalProperties() because of redundant function call, adds needless function to stack etc..
         return properties.stream().mapToDouble(Property::getArea).sum() / properties.size();
     }
 
     @Override
     public String toString() {
-        return "PropertyRegister{" +
-                "properties=" + properties +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        properties.forEach(p->sb.append(p.toString() + "\n"));
+        return String.format("Properties:\n%s", sb.toString());
     }
 }
