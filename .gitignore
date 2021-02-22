@@ -2,3 +2,5 @@
 .idea
 *.iml
 */docs
+*.zip
+out
